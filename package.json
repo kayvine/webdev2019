@@ -1,0 +1,31 @@
+{
+  "name": "webdev2019",
+  "version": "1.0.0",
+  "description": "Learn to git guud @ webdeveloppement 2019",
+  "main": "index.js",
+  "scripts": {
+    "buildDev": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kayvine/webdev2019.git"
+  },
+  "keywords": [
+    "wedev",
+    "2019",
+    "tutorial",
+    "udemy"
+  ],
+  "author": "Kevin Delmé",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kayvine/webdev2019/issues"
+  },
+  "homepage": "https://github.com/kayvine/webdev2019#readme",
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  }
+}
