@@ -1,10 +1,10 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
-module.export = {
+module.exports = {
   entry: {
     app: './src/index.js'
   },
@@ -12,7 +12,7 @@ module.export = {
     splitChunks: {
       cacheGroups: {
         styles: {
-          name:'styles',
+          name: 'styles',
           test: /\.css$/,
           chunks: 'all',
           enforce: true
@@ -24,7 +24,7 @@ module.export = {
     hot: true,
     compress: true,
     contentBase: path.join(__dirname, 'dist'),
-    open: 'chrome'
+    open: 'Chrome'
   },
   watch: true,
   devtool: 'source-map',
@@ -33,26 +33,22 @@ module.export = {
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
-    new CleanWebpackPlugin,
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      name: "style.css",
-      chunkFilename: "[name].css"
+      filename: "[name].css",
+      chunkFilename: "[id].css"
     }),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin()
   ],
   module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader"
-          },
-          "sass-loader"
-        ]
-      }
-    ]
+    rules: [{
+      test: /\.scss$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        "css-loader",
+        "sass-loader"
+      ]
+    }]
   }
 }
